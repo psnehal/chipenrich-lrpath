@@ -1,0 +1,419 @@
+cd ../* Object classes ------------------------------------------------------------------------------------------------------------------------*/
+body {
+	background-color: #dcdcdc;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #444444;
+	clear: both;
+	
+}
+
+hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border: none 0;
+	border-top: 1px dashed #bebebe;
+	height: 1px;
+}
+
+label {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+}
+
+
+
+table#basic {
+	width: 700px;
+	
+}
+
+table#basic td {
+	padding: 5px;
+	clear: both;
+}
+
+table#advanced {
+	width: 700px;
+}
+
+table#advanced td {
+	padding: 5px;
+}
+
+table#result {
+	width: 840px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #444444;
+	background-color: #fff;
+	border-width: 1px;
+	border: thin;
+	border-style: solid;
+	border-collapse: collapse;
+	border-color: #dddddd;
+	clear: both;
+}
+
+table#result td {
+	padding: 5px;
+	clear: both;
+}
+
+/* DIV objects ---------------------------------------------------------------------------------------------------------------------------*/
+#databaseList {
+	margin-left: -25px;
+}
+
+#formPanel {
+	width: 700px;
+	border: thin;
+	border-style: dotted;
+	border-color: #bebebe;
+	text-align: left;
+	padding-top: 10px;
+}
+
+#mainPanel {
+	width: 900px;
+	background-color: #fff;
+	border: thin;
+	border-style: solid;
+	border-color: #bebebe;
+	
+	
+}
+
+
+
+#mainResultsPanel {
+	width: 1100px;
+	background-color: #fff;
+	border: thin;
+	border-style: solid;
+	border-color: #bebebe;
+}
+
+#logoPanel {
+	width: 840px;
+	margin-top: 20px;
+}
+
+#contentPanel {
+	margin-top: 20px;
+	width: 840px;
+	text-align: left;
+	
+}
+
+#contentPanel3 {
+	
+	background-color:rgb(255,173,10)
+	
+}
+
+#contentPanel2 {
+	margin-top: 20px;
+	width: 840px;
+	text-align: justify;
+	padding-left: 40px;
+	padding-right: 50px;
+}
+
+#formContentPanel {
+	margin-top: 20px;
+	width: 840px;
+	text-align: left;
+}
+
+#loadingPanel {
+	margin-top: 20px;
+	width: 840px;
+	text-align: left;
+}
+
+#textPanel {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: justify;
+}
+
+#clusteringPanel {
+	margin-top: 20px;
+	width: 840px;
+	text-align: left;
+}
+
+#tabPanel
+{
+	background-color:rgb(255,173,10)
+}
+
+
+/* Font classes --------------------------------------------------------------------------------------------------------------------------*/
+.contentTitle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #444444;
+}
+
+.formText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #444444;
+}
+
+.formTitle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color: #777777;
+	padding-left: 20px;
+}
+
+.footnote {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	color: #777777;
+}
+
+.logoTitle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	font-weight: bold;
+	color: #444444;
+}
+
+.text {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 1.50em;
+	color: #444444;
+	text-align: justify;
+}
+
+.textMediumBold {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 1.50em;
+	color: #444444;
+}
+
+.textTitle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	color: #777777;
+}
+
+.disabled {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #cccccc;
+}
+
+/* Object style --------------------------------------------------------------------------------------------------------------------------*/
+.formObject {
+	border-style: solid;
+	border-width: 1px;
+	border-collapse: collapse;
+	border-color: #C0C0C0;
+	margin-left: 4px;
+	background-color: #dcdcdc;
+	font-family: Arial;
+	font-size: 13px;
+	color: #000000;
+}
+
+.tableHeader {
+	background-color: #eeeeee;
+}
+
+
+.hover {
+	background-color: #f7f7f7;
+}
+
+
+.tableStyle {
+	margin: auto;
+	width: 700px;
+	border-collapse: collapse;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #CCC;	
+}
+
+.tableStyle td, th{
+	padding: 4px;
+	border-collapse: collapse;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #CCC;	
+	vertical-align: top;
+}
+
+
+/* /tab style --------------------------------------------------------------------------------------------------------------------------*/
+#tabs {background: -webkit-gradient(
+      linear, right bottom, left top, color-stop(0, rgb(237,227,112)), color-stop(0.72, rgb(255,173,10))) }
+#tabs ul {
+list-style:none;
+background: -webkit-gradient(
+      linear, right bottom, left top, color-stop(0, rgb(237,227,112)), color-stop(0.72, rgb(255,173,10))) 
+}
+
+#tabs ul li {
+display:inline; float:left; margin-bottom:20px;
+
+}
+
+#tabs ul li a {
+ padding:20px; ; text-decoration: none; font: bold 14px Helvetica, Sans-Serif; letter-spacing: -1px; color: #402e16;
+    text-shadow: #eee 0px 0px 2px;
+}
+
+/* :first-child pseudo selector with rounded top left corner */
+#tabs ul li:first-child a { -moz-border-radius-topleft: 12px; -webkit-border-top-left-radius:12px; }
+ 
+/* :last-child pseudo selector with rounded top right corner */
+#tabs ul li:last-child a { -moz-border-radius-topright: 12px; -webkit-border-top-right-radius:12px; }
+
+#tabs ul li a:hover {
+
+   background: -webkit-gradient(
+      linear, right bottom, left top, color-stop(0, rgb(237,227,112)), color-stop(0.72, rgb(255,173,10))) !important;
+   background: -moz-linear-gradient(
+      right bottom, rgb(237,227,112) 0%, rgb(255,173,10) 72%) !important;
+   background-color:rgb(255,173,10) !important;
+   -moz-opacity:.90; filter:alpha(opacity=90); opacity:.90;
+}
+
+#tabs #Content_Area {
+border: #48f solid 3px;
+    clear: left;
+    padding: 1em;
+    
+}
+
+p { padding-left: 15px; }
+
+
+
+
+
+/* MENU */
+#menu { margin:40px 0 0 150px; }
+#menu ul { list-style:none; }
+#menu ul li { display:inline; float:left; margin-bottom:20px; }
+
+/* :first-child pseudo selector with rounded top left corner */
+#menu ul li:first-child a { -moz-border-radius-topleft: 12px; -webkit-border-top-left-radius:12px; }
+
+/* :last-child pseudo selector with rounded top right corner */
+#menu ul li:last-child a { -moz-border-radius-topright: 12px; -webkit-border-top-right-radius:12px; }
+
+/* background color set to RGBA, with opacity on 0.3 and also using text-shadow */
+#menu ul li a { padding:20px; background: rgba(255,138,30,0.3); text-decoration: none; font: bold 14px Helvetica, Sans-Serif; letter-spacing: -1px; color: #402e16;
+	text-shadow: #eee 0px 0px 2px; }
+	
+/* hover state shows a linear gradient and opacity it brought down to 0.9 and also shows a very slight grey gradient on top */
+#menu ul li a:hover { -moz-box-shadow: 0 -5px 10px #777; -webkit-box-shadow: 0 -5px 10px #777;
+	background: -webkit-gradient(
+		linear, right bottom, left top, color-stop(0, rgb(237,227,112)), color-stop(0.72, rgb(255,173,10))) !important;
+	background: -moz-linear-gradient(
+		right bottom, rgb(237,227,112) 0%, rgb(255,173,10) 72%) !important;
+	background-color:rgb(255,173,10) !important;
+	-moz-opacity:.90; filter:alpha(opacity=90); opacity:.90; }
+
+/* another RGBA background, now with an opacity of 0.8 */
+#menu ul li a.active { background: rgba(255,138,30,0.8) !important; }
+
+/* main contents with RGBA background (same colour as active tab) and three rounded corners */
+#main { clear:both; background: rgba(255,138,30,0.8); width:500px; margin-left:150px;
+	-moz-border-radius-topright: 12px; -moz-border-radius-bottomright: 12px; -moz-border-radius-bottomleft: 12px;
+	-webkit-border-top-right-radius:12px; -webkit-border-bottom-right-radius:12px; -webkit-border-bottom-left-radius:12px;}
+	
+/* header with a text-shadow */
+#main h3 { text-transform:uppercase; padding:20px 0 0 20px; color:#eee; text-shadow: #000 0px 0px 2px; }
+#main p { padding-bottom:20px; color:#ddd; }
+
+
+
+
+
+
+a:link, a:visited {
+        color: #FF2A84;
+        text-decoration: underline;
+}
+a:hover, a:active {
+        color: #FFF;
+        text-decoration: none;
+        background: #FF2A84;
+}
+#navigation {
+        background: #DDD;
+        border-bottom: 1px solid #A1A1A1;
+        margin: 1em 0 0;
+        padding: 0.6em 0 0;
+        font-weight: bold;
+}
+#navigation ul, #navigation ul li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+}
+#navigation ul {
+        padding: 5px 0 5px;
+        text-align: center;
+}
+#navigation ul li {
+        display: inline;
+}
+#navigation ul li a {
+        background: url(tableft.gif) no-repeat left top;
+        color: #FFF;
+        text-decoration: none;
+        padding: 5px 0;
+}
+#navigation ul li span {
+        background: url(tabright.gif) no-repeat right top;
+        padding: 5px 7px 5px 3px;
+        margin: 4px 0 4px 4px;
+}
+#navigation ul li a:hover span {
+        text-decoration: underline;
+        background-position: 100% -75px;
+}
+#navigation ul li a:hover {
+        background-position: 0 -75px;
+}
+#navigation #current a {
+        background-position: 0 -150px;
+}
+#navigation #current a span {
+        background-position: 100% -150px;
+}
+
+
+/*- Internet Explorer...It's Hacktastic!--------------------------- */
+
+/*\*//*/
+#navigation ul li a {
+        display: inline-block;
+        white-space: nowrap;
+        width: 1px;
+}
+
+#navigation ul {
+        padding-bottom: 0;
+        margin-bottom: -1px;
+}
+#html #navigation ul li a {
+        padding: 0;
+}
+
+
+

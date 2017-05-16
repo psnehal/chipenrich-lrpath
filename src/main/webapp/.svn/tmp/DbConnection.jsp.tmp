@@ -1,0 +1,62 @@
+
+    <%@ page language="java" import="javazoom.upload.*,java.util.*,java.text.*,java.math.*,org.ncibi.resource.util.*,org.ncibi.ws.client.*,java.sql.*" %>
+<%@ page import="org.ncibi.ws.request.RequestStatus,
+   org.ncibi.ws.*,
+   org.ncibi.task.TaskStatus,
+  org.ncibi.chipenrich.*"%>
+  <%@ page import="java.sql.*" %>
+<%@ page import="java.io.*" %>
+<%@ page import="java.util.*" %>
+<jsp:useBean id="optionBean" scope="session" class="org.ncibi.chipenrich.ChipEnrichInputArguments" />
+<%
+	//******************************************************************************************************************************************
+Connection c;
+		Statement s;
+
+		String username = "userNcibiQueueService";
+		String password = "280010use9Service";
+		String name = "snehal";
+		Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+		c = DriverManager.getConnection(
+				"jdbc:sqlserver://141.211.38.130:1435;databaseName=serverapps;selectMethod=cursor;schema=dbo", username,
+				password);
+		
+		String sql = "Select uuid from serverapps.dbo.ChipEnrichUrlLinkName where name = 'nov27test1'";
+		s = c.createStatement();
+		ResultSet results = s.executeQuery(sql);
+		String value = "";
+		if (results != null)
+		{
+			while (results.next())
+			{
+				
+				System.out.println("name = " + results.getString("uuid"));
+				value = results.getString("uuid");
+			}
+		}
+	
+
+%>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+The uid of the given name is: [ <%= value%> ]
+<% 
+String uid ="4142173747";
+ChipEnrichDbConnection con = new ChipEnrichDbConnection();
+String name2 ="testdec24";
+<<<<<<< .mine
+con.saveUuid(name, uid, "inspiresnehal@gmail.com");
+=======
+con.saveUuid(name, uid, "abc@abc.com");
+>>>>>>> .r1376
+%>
+</body>
+</html>

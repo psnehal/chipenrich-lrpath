@@ -1,0 +1,134 @@
+<%@ page language="java" import="javazoom.upload.*,java.util.*,java.text.*,java.math.*,
+	org.ncibi.lrpath.*,
+	org.ncibi.ws.thinkback.ThinkbackAdjustmentMethod,
+	org.ncibi.ws.thinkback.LRThinkArgs,
+	org.ncibi.resource.util.*,org.ncibi.ws.client.*" %>
+	
+<%@ page import="org.ncibi.ws.request.RequestStatus, org.ncibi.ws.*,org.ncibi.chipenrich.ChipEnrichInputArguments"%>
+<%@ page language="java" import="javazoom.upload.*,java.io.*,java.util.*,java.text.*,java.math.*,org.ncibi.lrpath.*,org.ncibi.resource.util.*" %>
+<jsp:useBean id="optionBean" scope="session" class="org.ncibi.chipenrich.ChipEnrichInputArguments" />
+<jsp:useBean id="dataBean" scope="session" class="org.ncibi.lrpath.LRPathArguments" />
+<%@ page contentType="text/html; charset=iso-8859-1" language="java" %>
+<%
+
+ResourceBundle msg = ResourceBundle.getBundle("org.ncibi.resource.bundle.message");
+ResourceBundle u = ResourceBundle.getBundle("org.ncibi.resource.bundle.url");
+String sender = msg.getString("sender");
+String emailMessage = msg.getString("emailMessage");
+String subject = msg.getString("subject");
+String directionField = "Enriched";
+String uid = "null";
+
+//******************************************************************************************************************************************
+NcibiChipEnrichService chipenrichclient = new NcibiChipEnrichService(HttpRequestType.POST);
+Response<String> res = chipenrichclient.submitChipEnrichRequest(optionBean);
+System.out.println(res.getResponseStatus());
+
+uid = res.getResponseValue();//?unique location I have to save file into this location
+out.println("uid is :==  "+uid);
+
+//*************To save uid with outname***********************************************************************************************************
+ChipEnrichDbConnection con = new ChipEnrichDbConnection();
+String name =optionBean.getOutName();
+<<<<<<< .mine
+con.saveUuid(name, uid,"abc@ac.com");
+=======
+con.saveUuid(name, uid,"abc@abc.com");
+>>>>>>> .r1376
+
+%>
+<html>
+<head>
+		<title>Chip-Enrich</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		
+</head>
+<body>
+<p>UploadFile:  <%=optionBean.getUploadFile()%></p>
+<p>Outpth: <%=optionBean.getOutPath()%><BR></p>
+<p>Outname:  <%=optionBean.getOutName()%></p>
+<p>Email: <%=optionBean.getEmail()%><BR></p>
+<p>Supported Genome: <%=optionBean.getSgList()%> <BR></p>
+<p>Methods: <%=optionBean.getMethod()%></p>
+<p>Locus definition: <%=optionBean.getLd()%></p>
+<p>Mappibility   <%=optionBean.getIsMappable()%></p>
+<p>RangecHECK   <%=optionBean.getRc()%></p>
+<p>Summary Plots <%=optionBean.getQc()%></p>
+
+
+
+<%
+	String select[] = optionBean.getSgSetList();
+out.println("You have selected: ");
+if (select != null && select.length != 0) {
+
+for (int i = 0; i < select.length; i++) {
+out.println(select[i]); 
+}
+}
+%>
+
+
+<%
+	String url = "chipEnrichResult.jsp?name=" + optionBean.getOutName() ;
+String urllink = u.getString("webRoot") + url;
+%>
+<p> Your result is at </p> <%= urllink %>
+
+<div id="mainPanel">
+
+<!--  LOGO PANEL -------------------------------------------------------------------------------------------------------------------------->			
+
+				<div id="logoPanel">
+					<img alt="LRpath" src="images/logo.jpg">
+					<br />
+					<br />
+					<span class="logoTitle">Chip-Enrich</span>
+					<hr>
+				</div>
+							
+<!--  RESULTS PANEL ---------------------------------------------------------------------------------------------------------------------->	
+				
+				<div id="contentPanel">
+				    <span class="contentTitle">Analysis Status</span>
+					<div id="textPanel">
+					<span class="text">
+						Your dataset has been submitted for analysis. Please check back using this link
+				    	<br>
+				    	<br>
+				    	<a href="<%= urllink %>"></a>
+					</span>
+					</div>
+					<hr>
+				</div>
+				
+<!--  FOOTER PANEL ------------------------------------------------------------------------------------------------------------------------>	
+							
+				<div id="contentPanel">
+					<div id="textPanel">			
+					
+					<img src="images/ncibiLogo.gif" />
+					<br />
+					<br />
+					<span class="text">
+						Copyright 2010 The University of Michigan 
+						<br />
+						Developed under the support of the NIH/National Library of Medicine 
+						<br />
+						Grant # R01 LM008106 ("Representing and Acquiring Knowledge of Genome 
+						<br />
+						Regulation") and the National Center for Integrative Biomedical 
+						<br />
+						Informatics (NCIBI), NIH Grant # U54 DA021519 01A1 
+						<br />
+						Terms of Use 
+					</span>
+				
+					</div>
+				</div>							
+			</div>
+	
+
+</body>
+</html>
+

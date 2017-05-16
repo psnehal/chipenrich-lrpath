@@ -1,0 +1,39 @@
+package org.ncibi.resource.util;
+
+ import java.io.*;
+import java.util.ArrayList;
+import java.util.zip.*;
+
+public class CreateZip{
+
+public static void main(String[] args)  throws Exception  {
+	CreateZip cz = new CreateZip();
+
+}
+
+public void ZipIt(String filepath, String filename)
+{
+		
+       ZipOutputStream out;
+	try {
+		out = new ZipOutputStream(new FileOutputStream(filename));
+		File folder = new File(filepath);
+		   
+				File[] listOfFiles = folder.listFiles(); 		 
+				for (int i = 0; i < listOfFiles.length; i++) 
+				  {
+						String name = listOfFiles[i].getName();
+						out.putNextEntry(new ZipEntry(listOfFiles[i].getName())); 
+						System.out.println(name);
+				 }
+	        out.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}  catch (IOException e) {		
+		e.printStackTrace();
+	}
+       
+       
+    }
+
+    }

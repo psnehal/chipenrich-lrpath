@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/codestore/ncibi/projects/!svn/ver/1431/chipenrichweb/LRPathBranch/src/main/resources/org/ncibi/resource/bundle
+END
+message.properties
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/main/resources/org/ncibi/resource/bundle/message.properties
+END
+database.properties
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/codestore/ncibi/projects/!svn/ver/1480/chipenrichweb/LRPathBranch/src/main/resources/org/ncibi/resource/bundle/database.properties
+END
+url.properties.template
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/codestore/ncibi/projects/!svn/ver/1429/chipenrichweb/LRPathBranch/src/main/resources/org/ncibi/resource/bundle/url.properties.template
+END
+sql.properties
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/main/resources/org/ncibi/resource/bundle/sql.properties
+END
+r.properties
+K 25
+svn:wc:ra_dav:version-url
+V 124
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/main/resources/org/ncibi/resource/bundle/r.properties
+END
+url.properties
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/codestore/ncibi/projects/!svn/ver/1480/chipenrichweb/LRPathBranch/src/main/resources/org/ncibi/resource/bundle/url.properties
+END
+Old database.properties
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/main/resources/org/ncibi/resource/bundle/Old%20database.properties
+END

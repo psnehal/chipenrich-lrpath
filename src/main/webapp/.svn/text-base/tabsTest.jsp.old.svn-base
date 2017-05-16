@@ -1,0 +1,220 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+ <%@ page language="java" import="javazoom.upload.*,java.util.*,java.text.*,java.math.*,org.ncibi.resource.util.*,org.ncibi.ws.client.*,org.ncibi.chipenrich.*" %>
+ <jsp:useBean id="optionBean" scope="session" class="org.ncibi.chipenrich.ChipEnrichInputArguments" />
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+
+<%
+
+
+String resultPath = "C:/Users/snehal/Desktop/work/lrpathweb/LRPathBranch/FileStore/patil/chipenrich_results.tab";
+String peakPath = "C:/Users/snehal/Desktop/work/lrpathweb/LRPathBranch/FileStore/patil/chipenrich_peaks.tab";
+//String imagelocation = outname+"/"+outname+"_chipenrich.jpeg";
+//String imagelocation = "images/lrpathlogo.jpg";
+org.ncibi.chipenrich.ReadResultFile resout = new org.ncibi.chipenrich.ReadResultFile();
+ConvertToDouble df = new ConvertToDouble();
+
+
+System.out.println("After ob creation");
+String[] res = new String[0];
+ArrayList<ChipEnrichResults> peaks = new ArrayList<ChipEnrichResults>();
+ArrayList<ChipEnrichResults> results = new ArrayList<ChipEnrichResults>();
+//peaks = resout.readPeaks(peakPath);
+results = resout.readRes(resultPath);
+StringBuffer html = new StringBuffer();
+StringBuffer html2 = new StringBuffer();
+
+for(int i = 0; i<peaks.size();i++)
+{ 
+	html.append("<tr>"+
+	"<td>"+peaks.get(i).getGeneid()+ "</td>"
+   +"<td>"+peaks.get(i).getChrom()+"</td>"
+   +"<td>"+peaks.get(i).getPmid()+ "</td>"
+   +"<td>"+peaks.get(i).getLstart()+"</td>"
+   +"<td>"+peaks.get(i).getLend()+ "</td>"
+   +"<td>"+peaks.get(i).getDtss()+"</td>"
+   +"<td>"+peaks.get(i).getGsym()+"</td>"
+   +"</tr>");
+   
+}
+
+
+for(int i = 0; i<results.size();i++)
+{ 
+	html2.append(
+	"<tr>"
+	+"<td>"+results.get(i).getSetid()+ "</td>"
+    +"<td>"+results.get(i).getGtype()+"</td>"
+	+"<td>"+results.get(i).getDesc()+ "</td>"
+    +"<td>"+df.doubleFormatter(results.get(i).getPvalue())+"</td>"
+	+"<td>"+df.doubleFormatter(results.get(i).getFdr())+ "</td>"
+    +"<td>"+df.doubleFormatter(results.get(i).getOratio())+"</td>"
+	+"<td>"+df.doubleFormatter(results.get(i).getNgg())+ "</td>"
+    +"<td>"+results.get(i).getNgpg()+"</td>"+
+   
+    "<td>"
+    +"<a href='http://www.ncbi.nlm.nih.gov/gene?term="+results.get(i).getGpg()+"'>Geneset.Peak.Genes</a></td>"
+    //+"<td><a href=\'http://www.ncbi.nlm.nih.gov/gene?term=945, 7097, 3592, 3593'>Geneset.Peak.Genes</a></td>"
+	+"</tr>");
+	//System.out.println("its from hrml2"+"<a href='http://www.ncbi.nlm.nih.gov/gene?term="+results.get(i).getGpg()+"'>Geneset.Peak.Genes</a>");
+}
+
+%>
+
+
+
+
+
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+    <title>jQuery UI Tabs - Default functionality</title>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="/resources/demos/style.css" />
+    <script>
+    $(function() {
+    	$("#tabs").tabs();
+    	    });
+//alert("The tab at index " + tab.index + " was selected");
+</script>
+</head>
+<body>
+
+<center>
+<div id="mainResultsPanel">
+<!--  LOGO PANEL ----------------------------------------------------------------------------------------------------------------------->		
+ <div id="logoPanel">
+<img alt="my Image" src="images/chipLogo.jpeg">
+ <br /> <br /> <span
+        class="logoTitle">ChIP-Enrich: Gene set enrichment testing for ChIP-seq data</span>
+        <hr>
+        </div>
+
+<!--  summary plots PANEL ----------------------------------------------------------------------------------------------------------------------->		 
+	 
+ 
+ 
+<!--  RESULTS PANEL ---------------------------------------------------------------------------------------------------------------------->	
+
+		<div id="tabs">
+			    <ul>
+			        <li><a href="#tabs-1">Peaks</a></li>
+			        <li><a href="#tabs-2">results</a></li>
+			    </ul>
+			<div id="mainPanel">
+			   
+			  
+    
+			    <div id="tabs-1">
+			    	<center>
+				    <table id="result" border="1">
+					<thead>
+					<tr class="tableHeader">
+							<td>
+							    <span class="text"><b>GeneId</b></span>
+						    </td>
+						    <td>
+						    	<span class="text"><b>Chromosome No</b></span>
+						    </td>
+						    <td>
+						    	<span class="text"><b>Peak Midpoint</b></span>
+						    </td>
+						    <td>
+						    	<span class="text"><b>Locus start</b></span>
+						    </td>
+						    <td>
+						    	<span class="text"><b>locus end</b></span>
+						    </td>
+						    <td>
+						    	<span class="text"><b>Distance to TSS</b></span>
+						    </td>
+						    <td>
+						    	<span class="text"><b>Gene Symbol</b></span>
+						    </td>
+					<tr>
+					</thead>
+					<%= html.toString() %>
+				    </table>
+				    </center>
+			    </div>
+		    </div>
+		    <div id="mainResultsPanel">	    
+			    <div id="tabs-2">
+			    	<table border ="0">
+					<thead>
+					<tr class="tableHeader">
+					
+							<td>
+							   <span class="text"><b>ID</b></span>
+						    </td>
+						    <td>
+						    	<span class="text"><b>Type</b></span>
+						    </td>
+						    <td>
+						    	<span class="text"><b>Description</b></span>
+						    </td>
+						    <td>
+						    	<span class="text"><b>P value</b></span>
+						    </td>
+						    <td>
+						    	<span class="text"><b>FDR</b></span>
+						    </td>
+						    <td>
+						    	<span class="text"><b>Odds.Ratio</b></span>
+						    </td>
+						    <td>
+						    	<span class="text"><b>N.Geneset.Genes</b></span>
+						    </td>
+						    <td>
+						    	<span class="text"><b>N.Geneset.Peak.Genes</b></span>
+						    </td>
+						     <td>
+						    	<span class="text"><b>Geneset.Peak.Genes</b></span>
+						    </td>
+					
+					 <tr>
+					 </thead>
+					 <%= html2.toString() %>
+				</table>
+			    </div>
+			 </div>   
+		   
+		    
+			
+		</div>
+
+ <!--  FOOTER PANEL ------------------------------------------------------------------------------------------------------------------------>	
+ 		<div id="contentPanel">
+						<div id="textPanel">			
+							<center>
+							<img src="images/ncibiLogo.gif" />
+							<br />
+							<br />
+							<span class="text">
+								Copyright 2010 The University of Michigan 
+								<br />
+								Developed under the support of the NIH/National Library of Medicine 
+								<br />
+								Grant # R01 LM008106 ("Representing and Acquiring Knowledge of Genome 
+								<br />
+								Regulation") and the National Center for Integrative Biomedical 
+								<br />
+								Informatics (NCIBI), NIH Grant # U54 DA021519 01A1 
+								<br />
+								Terms of Use 
+							</span>
+							</center>
+						</div>
+          </div>
+</div>   
+</center>       
+					
+</body>
+</html>
+
+
+ 

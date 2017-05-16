@@ -1,0 +1,89 @@
+<%@ page language="java" import="javazoom.upload.*,java.util.*,java.text.*,java.math.*,org.ncibi.resource.util.*,org.ncibi.ws.client.*,org.ncibi.chipenrich.*" %>
+<%@ page import="org.ncibi.ws.request.RequestStatus,
+   org.ncibi.ws.*,
+   org.ncibi.task.TaskStatus,
+  org.ncibi.chipenrich.*"%>
+<jsp:useBean id="optionBean" scope="session" class="org.ncibi.chipenrich.ChipEnrichInputArguments" />
+<%
+	//******************************************************************************************************************************************
+ResourceBundle url = ResourceBundle.getBundle("org.ncibi.resource.bundle.url");
+
+String name = request.getParameter("name");
+System.out.println("Name is : "+name);
+
+
+ChipEnrichDbConnection con = new ChipEnrichDbConnection();
+String uid = con.getUuid(name);
+System.out.println("uid is :"+ uid);
+
+DataWriter write = new DataWriter(); 
+NcibiChipEnrichService client = new NcibiChipEnrichService(HttpRequestType.POST);
+Response<RequestStatus<List<ChipEnrichResults>>> rs = client.chipEnrichStatus(uid);
+
+TaskStatus status = rs.getResponseValue().getTask().getStatus();
+List warning  = rs.getResponseValue().getData();
+if(warning.get(0).equals("Done"))
+{
+        //String outhpath = optionBean.getOutPath();
+        ////      String outname = optionBean.getOutName();
+        //        //CreatePeakHtml cph = new CreatePeakHtml();
+        System.out.println("yupie your task is done"+ warning.get(0));
+                             String jsp = "tabs.jsp?outname="+name ;
+                                        %>
+        
+                                                <jsp:forward page= "<%=jsp%>"/>
+                                                        <%
+        
+                                                }
+else{
+        %>
+       
+      <div id="contentPanel">
+       <span class="contentTitle">Analysis Status</span>
+        <div id="textPanel">
+        <span class="text">
+        		Error in your job with <%= warning.get(0) %> message.
+        		<br>
+        		<br>
+        
+        		</span>
+      		</div>
+        		<hr>
+        		</div>
+        
+        
+        		<%
+        
+        		}
+
+//******************************************************************************************************************************************
+
+if(status == TaskStatus.DONE)
+{	
+	//String outhpath = optionBean.getOutPath();
+//	String outname = optionBean.getOutName();
+	//CreatePeakHtml cph = new CreatePeakHtml();
+	System.out.println("yupie your task is done");
+	String jsp = "tabs.jsp?outname="+name ;
+	%>
+	
+	<jsp:forward page= "<%=jsp%>"/>
+	<%
+}
+if(status == TaskStatus.ERRORED)
+{
+	out.println("your task failed with error");
+}
+
+if(status == TaskStatus.QUEUED)
+{
+	out.println("Your task is QUEUED");
+}
+if(status == TaskStatus.RUNNING)
+{
+ %>
+ <jsp:forward page= "status.jsp"/>
+<%
+}
+
+%>

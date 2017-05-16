@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/codestore/ncibi/projects/!svn/ver/1380/chipenrichweb/LRPathBranch/src/test/java/org/ncibi/test
+END
+test.java
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/test/java/org/ncibi/test/test.java
+END
+oldJDBCTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/test/java/org/ncibi/test/oldJDBCTest.java
+END
+JDBCTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/test/java/org/ncibi/test/JDBCTest.java
+END
+runLdFIle.java
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/codestore/ncibi/projects/!svn/ver/1380/chipenrichweb/LRPathBranch/src/test/java/org/ncibi/test/runLdFIle.java
+END
+TestMailer.java
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/test/java/org/ncibi/test/TestMailer.java
+END
+TestMailer2.java
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/test/java/org/ncibi/test/TestMailer2.java
+END
+ChipEnrichLinkUrlTest.java
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/test/java/org/ncibi/test/ChipEnrichLinkUrlTest.java
+END

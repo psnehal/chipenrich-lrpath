@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/main/r/testData
+END
+HPV_DirectionalTestData.txt
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/main/r/testData/HPV_DirectionalTestData.txt
+END
+drosophila-NonDirectional-lr1.txt
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/main/r/testData/drosophila-NonDirectional-lr1.txt
+END
+yeast_test-Directional_simulated.txt
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/main/r/testData/yeast_test-Directional_simulated.txt
+END
+zebrafish-drerio_test-Directional_GDS3719.txt
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/main/r/testData/zebrafish-drerio_test-Directional_GDS3719.txt
+END
+celegan_test-Directional_GDS3579.txt
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/main/r/testData/celegan_test-Directional_GDS3579.txt
+END
+GeneHumanLogWithHeader.txt
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/main/r/testData/GeneHumanLogWithHeader.txt
+END
+Rat_Test_Data-Directional-EDL_Burant_Data.txt
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/main/r/testData/Rat_Test_Data-Directional-EDL_Burant_Data.txt
+END
+Mouse_Test_Data-Directional-PCF-PCC_Menon.txt
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/codestore/ncibi/projects/!svn/ver/1288/chipenrichweb/LRPathBranch/src/main/r/testData/Mouse_Test_Data-Directional-PCF-PCC_Menon.txt
+END
