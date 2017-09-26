@@ -15,7 +15,7 @@ String sumFilLoc = url.getString("summaryDirectory");
 <head>
  <link rel="stylesheet" type="text/css" href="css/style1.css">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>ChIP-Enrich: Gene set enrichment testing for ChIP-seq data</title>
+  <title>ChIP-Enrich: Gene set enrichment testing for ChIP-seq data and other sets of genomic regions</title>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
@@ -38,7 +38,7 @@ String sumFilLoc = url.getString("summaryDirectory");
 	<div id="logoPanel">
 		<a href="chipMain.jsp">
 		<img height="50%" width="50%" alt="ChipEnrich" src="logos/chipLogo.jpg"></a><br /> <br /> 
-		<span class="logoTitle">ChIP-Enrich: Gene set enrichment testing for ChIP-seq data</span>
+		<span class="logoTitle">ChIP-Enrich: Gene set enrichment testing for ChIP-seq data and other sets of genomic regions</span>
 		<hr>
 		<span class="summaryTitle">ENCODE Results</span>
 	</div>

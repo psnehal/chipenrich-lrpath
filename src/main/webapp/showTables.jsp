@@ -36,7 +36,7 @@ System.out.println("size set   "+set.size());
 <head>
 			<link rel="stylesheet" type="text/css" href="css/style1.css">
 			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-			<title>ChIP-Enrich: Gene set enrichment testing for ChIP-seq data</title>
+			<title>ChIP-Enrich: Gene set enrichment testing for ChIP-seq data and other sets of genomic regions</title>
 </head>
 <body>
 <center>

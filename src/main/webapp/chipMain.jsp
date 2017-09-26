@@ -9,7 +9,7 @@
 
 <html>
 <head>
-<title>ChIP-Enrich: Gene set enrichment testing for ChIP-seq data</title>
+<title>ChIP-Enrich: Gene set enrichment testing for ChIP-seq data and other sets of genomic regions</title>
 <link rel="stylesheet" type="text/css" href="css/style1.css">
 <script type="text/javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="js/validation.js"></script>
@@ -25,7 +25,7 @@
 		<div id="logoPanel">
 			<a href="chipMain.jsp">
 			<img height="50%" width="50%" alt="ChipEnrich" src="logos/chipLogo.jpg"></a> <br /> <br /> 
-			<span class="logoTitle">ChIP-Enrich: Gene set enrichment testing for ChIP-seq data</span>
+			<span class="logoTitle">ChIP-Enrich: Gene set enrichment testing for ChIP-seq data and other sets of genomic regions</span>
 			<hr>
 		</div>
 		
@@ -92,9 +92,9 @@
 				</td>
 				<td><input id="uploadfile" type="file" name="uploadfile" size="30" class="formObject" > <br /> <br /> 
 				   <span class="footnote">
-				  ChIP-Enrich supports .bed.gz, .bed, .broadPeak, .narrowPeak, .bed.gff, and .bed.gff3 files. Files with 
-				  any other extension should have a header row including 'chrom', 'start', and 'end' to indicate chromosomal 
-				  locations.
+				   The following formats are fully supported via their file extensions: .bed, .broadPeak, .narrowPeak, .gff3, .gff2, .gff, and .bedGraph or .bdg. 
+				   BED3 through BED6 files are supported under the .bed extension. Files without these extensions are supported under the conditions that 
+				   the first 3 columns correspond to 'chr', 'start', and 'end' and that there is either no header column, or it is commented out.
 				   </span>
 				   <br/> <br/>
 				</td>
@@ -125,10 +125,15 @@
 				<td><select name="sglist" id="sglist" size="1" class="formObject" onChange="selectMappaOption();">
 								<option value="">Select Genome</option>
 								<option value="hg19">Human (hg19)</option>
+								<option value="hg38">Human (hg38)</option>
 								<option value="mm9">Mouse (mm9)</option>
 								<option value="mm10">Mouse (mm10)</option>
 								<option value="rn4">Rat (rn4)</option>
-								<option value="dm3">D. melanogaster (dm3) </option>								
+								<option value="rn5">Rat (rn5)</option>
+								<option value="rn6">Rat (rn6)</option>
+								<option value="dm3">D. melanogaster (dm3) </option>	
+								<option value="dm6">D. melanogaster (dm6) </option>	
+								<option value="dre">D. Zebrafish (danRer10) </option>								
 								</select>
 								<br/> <br/><br/> <br/>
 				</td>
@@ -229,10 +234,12 @@
 								<input id="uploadCustomfile" type="file" name="uploadcustomfile" size="30" class="formObject" onchange="uploadFile()"></li>
 								</ul>
 							    <br/>
+							    
+							    
 							    		
 								<li><label>Select All Datatbases</label>
 								<ul>
-								<li><label><input name="slist2"  type="checkbox"  onclick="selectAllDb(this)"/><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?db=gene">SelectAll</a>
+								<li><label><input name="slist2"   value="selectall" type="checkbox"  onclick="selectAllDb(this)"/><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?db=gene">SelectAll</a>
 								</label>
 								</li>
 								</ul>
@@ -249,45 +256,28 @@
 						<br/> <br/></td>
 				</tr>
 				<tr>
-				<td align="right" valign="top"><span class="formText"><b>Filter</b></span>
-				</td>
-				 <td><span class="formText">Only test gene sets with less than the following number of genes: </span>
-                                <input id="filter" type="text" name="filter" size="10" value= "2000" class="formObject" >
-                                <span class="formText"></span>
-                                        <br/> <span class="footnote">
-                                                Filter value should be numeric and greater than 30.It can be used to remove large, vague gene sets such as "binding".
-                                                 </span>
-                                                 <br/> <br/>
-
-			    </tr>
-			    
-			    <tr>
-				<td align="right" valign="top"><span class="formText"><b>Peak Threshold Number</b></span>
-				</td>
-				<td>
-				<input id="peakthr" type="text" name="peakthr" size="10" value= "1" class="formObject" onClick="checkPeakThr(this)" > 
-				
-					<br/> <span class="footnote">
-						Number of peaks a gene must have assigned to it before getting coded as 1 (having a peak) in the test. Typically, this should be set to 1.
-						 </span>
-						 <br/> <br/>
-				</td>
-			    </tr>
-				
-				<tr>
 				
 					<td align="right" valign="top"><span class="formText"><b>Enrichment Method</b></span></td>
 					<td>
 						<div id="methods">
 						 <ul>  
-						<li><input type="radio" name="method" class="formObject" value="chipenrich" checked="checked"/><span class="formText">Chip-Enrich</span></li>
-						<li><input type="radio" name="method"class="formObject" value="fet" /><span class="formText">Fisher's exact test</span></li>
-						</ul>  
-						</div>
+						<li><input type="radio" name="method" class="formObject" value="chipenrich" checked="checked" onClick="selectMethod(this)"/><span class="formText">Chip-Enrich</span><br />
+				<span class="footnote"> (usually best for 1000's to 10,000's of genomics regions)</span></li>
+						<li><input type="radio" name="method" class="formObject" value="polyenrich"  onClick="selectMethod(this)" /><span class="formText">Poly-Enrich </span><br />
+				<span class="footnote">(usually best for >40,000 of genomic regions) </span></li>
+						<li><input type="radio" name="method" class="formObject" value="hybrid"  onClick="selectMethod(this)" /><span class="formText">Hybrid Test</span><br />
+				<span class="footnote"> (get the best of both! ...but longer runtime)</span></li>
+						<li><input type="radio" name="method"class="formObject" value="fet"  onClick="selectMethod(this)" /><span class="formText">Fisher's exact test</span></li>
 						<span class="footnote">
 						We recommend using Fisher's Exact test only with the 1kb or 5kb locus definition.
 						 Using it with any of the other locus definitions may result in biased enrichment results.
 						 </span>
+						</ul>  
+						 
+						 <input id ="checkme"  value="weightinh" type="checkbox"/><span class="formText">"weight peaks by peak strength?"</span><br/>
+						 <span class="footnote">Uses signalValue from .narrowpeak, or the 4th column from other file types, such as numeric column of bedGraph</span>
+						</div>
+						
 					</td>
 				</tr> 
 						
@@ -320,9 +310,18 @@
 				</td>
 				</tr> 
 				
+				<tr>
+				<td align="right" valign="top"><span class="formText"><b>Filter</b></span>
+				</td>
+				 <td><span class="formText">Only test gene sets with less than the following number of genes: </span>
+                                <input id="filter" type="text" name="filter" size="10" value= "2000" class="formObject" >
+                                <span class="formText"></span>
+                                        <br/> <span class="footnote">
+                                                Filter value should be numeric and greater than 30.It can be used to remove large, vague gene sets such as "binding".
+                                                 </span>
+                                                 <br/> <br/>
 
-	
-				
+			    </tr>				
 				<tr>
 				<td align="right" valign="top"><span class="formText"><b> Adjust for the mappability of the gene locus regions</b> </span> </td>
 				<td>
@@ -335,6 +334,18 @@
 				</td>
 				</tr> 
 				
+				  <tr>
+				<td align="right" valign="top"><span class="formText"><b>Peak Threshold Number</b></span>
+				</td>
+				<td>
+				<input id="peakthr" type="text" name="peakthr" size="10" value= "1" class="formObject" onClick="checkPeakThr(this)" > 
+				
+					<br/> <span class="footnote">
+						Number of peaks a gene must have assigned to it before getting coded as 1 (having a peak) in the test. Typically, this should be set to 1.
+						 </span>
+						 <br/> <br/>
+				</td>
+			    </tr>
 				
 				
 				    

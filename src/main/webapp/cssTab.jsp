@@ -62,7 +62,7 @@ String imagelocation2 = outname+"/"+outname+"_qcplots.jpeg";
 <!--  LOGO PANEL ----------------------------------------------------------------------------------------------------------------------->		
 		 <div id="logoPanel">
 			<img alt="my Image" src="images/chipLogo.jpg"/>
-	 		<br /> <br /> <span class="logoTitle">ChIP-Enrich: Gene set enrichment testing for ChIP-seq data</span> 
+	 		<br /> <br /> <span class="logoTitle">ChIP-Enrich: Gene set enrichment testing for ChIP-seq data and other sets of genomic regions</span> 
 	 		<hr></hr>
 	        
 	    </div>

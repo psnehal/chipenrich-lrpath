@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>ChIP-Enrich: Gene set enrichment testing for ChIP-seq data</title>
+<title>ChIP-Enrich: Gene set enrichment testing for ChIP-seq data and other sets of genomic regions</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script type="text/javascript" src="js/menu.js"></script>
 <script type="text/javascript" src="js/validation.js"></script>
@@ -18,7 +18,7 @@
 
 <div id="logoPanel">
 <img alt="LRpath" src="images/.jpg"> <br /> <br /> <span
-class="logoTitle">ChIP-Enrich: Gene set enrichment testing for ChIP-seq data</span>
+class="logoTitle">ChIP-Enrich: Gene set enrichment testing for ChIP-seq data and other sets of genomic regions</span>
 <hr>
 </div>
 

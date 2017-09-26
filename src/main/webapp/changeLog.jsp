@@ -16,7 +16,7 @@
 	<div id="logoPanel">
 			<a href="chipMain.jsp">
 			<img height="50%" width="50%" alt="ChipEnrich" src="logos/chipLogo.jpg"></a> <br /> <br /> 
-			<span class="logoTitle">ChIP-Enrich: Gene set enrichment testing for ChIP-seq data</span>
+			<span class="logoTitle">ChIP-Enrich: Gene set enrichment testing for ChIP-seq data and other sets of genomic regions</span>
 			<hr>
 		</div>
     

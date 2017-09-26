@@ -109,19 +109,15 @@ out.println(nameCheck);
         	optionBean.setUploadCustomFile(dirPathCustom);
         	upBean.store(mrequest, "uploadcustomfile");
         	
-        	
-        	
-        	
-//Create path for mappa file
-        	
-//*************Check for MappaFile******************************************************************************************************************************************************
-	
-        System.out.println("For Null");
-		String token = "null";
-		optionBean.setUploadMappaFile(null);
-		ArrayList <String> warningsFrMappa = new ArrayList<String>();
-		ArrayList <String> warnings = new ArrayList<String>();
-        ArrayList <String> warningsAll = new ArrayList<String>();
+			//Create path for mappa file
+			//*************Check for MappaFile******************************************************************************************************************************************************
+				
+		    System.out.println("For Null");
+			String token = "null";
+			optionBean.setUploadMappaFile(null);
+			ArrayList <String> warningsFrMappa = new ArrayList<String>();
+			ArrayList <String> warnings = new ArrayList<String>();
+		       ArrayList <String> warningsAll = new ArrayList<String>();
 	
 		System.out.println(range);
 		if(range != null)

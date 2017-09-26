@@ -20,7 +20,7 @@ String status = request.getParameter("status");
 				<div id="logoPanel">
 					<a href="chipMain.jsp">
 						<img  alt="ChipEnrich" src="logos/chipLogoWeb.jpg"></a> <br /> <br /> 
-						<span class="logoTitle">ChIP-Enrich: Gene set enrichment testing for ChIP-seq data</span>
+						<span class="logoTitle">ChIP-Enrich: Gene set enrichment testing for ChIP-seq data and other sets of genomic regions</span>
 					<hr>
 				</div>
 							

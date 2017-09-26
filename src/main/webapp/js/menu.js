@@ -45,11 +45,42 @@ function selectAllDb(source)
 	 checkboxes = document.getElementsByName('slist');
 	 console.log(checkboxes.length);
 	 
-	  for (var i =0, n=checkboxes.length;i<n;i++)
-		  {
-		  console.log("its iniside for loop");
-		  checkboxes[i].checked = source.checked;
-		  }
+	 checkboxes2 = document.getElementsByName('slist2');
+	 alert(checkboxes2[0].checked);
+	 
+	 if(checkboxes2[0].checked = true)
+		 {
+		 
+		 		
+			  for (var i =0, n=checkboxes.length;i<n;i++)
+				  {
+				  console.log("its iniside for loop" );
+				   if(checkboxes[i].value == "custom")
+					   {
+					  
+					   checkboxes[i].checked = false;
+					   }
+				   else{
+					   
+					   checkboxes[i].checked = true;
+					   
+				   }
+				 }
+			  
+			  checkboxes2[0].checked=true;
+			  
+		 }
+	 
+	 
+	 else if(checkboxes2[0].checked = false)
+		 {
+			 alert("in the false loop");
+			 for (var i =0, n=checkboxes.length;i<n;i++)
+			  {
+			  	   checkboxes[i].checked = false;
+				   
+			  }
+		 }
 }
 
 
@@ -84,6 +115,25 @@ function selectRangeCheck()
 	    	
 	    	}
 	    if(document.upform.ismappable[0].checked && selection == "hg19") {
+	    	
+	    	var list = 
+				'<ul class="checklist">'
+				+'<td align="right" valign="top"><span class="formText">Read Length</span></td>'
+				+'<td>'
+				+'<ulclass="checklist">'
+				+'<li><input type="radio" name="rc" value="24"  /><span class="formText">24</span></li>'
+				+'<li><input type="radio" name="rc" value="36"  /><span class="formText">36</span></li>'
+				+'<li><input type="radio" name="rc" value="40" /><span class="formText">40</span></li>'
+				+'<li><input type="radio" name="rc" value="50"  /><span class="formText">50</span></li>'
+				+'<li><input type="radio" name="rc" value="75"/><span class="formText">75</span></li>'
+				+'<li><input type="radio" name="rc" value="100" /><span class="formText">100</span></li>'
+				+'<li><input type="radio" name="rc" value="user" onClick="userDefMappa()" /><span class="formText">User defined</span></li>'
+				+'</ul>' 
+				+'</td>';
+				
+				document.getElementById("rangeCheck").innerHTML = list;
+	    }
+	    else if(document.upform.ismappable[0].checked && selection == "hg19") {
 	    	
 	    	var list = 
 				'<ul class="checklist">'
@@ -144,7 +194,7 @@ function selectMappaOption(){
 	    var sglistIndex = sglist.selectedIndex;
 	    var selection = sglist.options[sglistIndex].value;
 	    console.log(selection);
-	    if(selection == "rn4"  ){
+	    if(selection.includes("rn")){
 	    	var list =
 			'<ul>'
 			+'<li><input type="radio" name="ismappable" value="F" checked="checked"  /><span class="formText">False</span><br/><span class="footnote"> Mappability is only available for hg19 and mm9 </span></li>'
@@ -223,9 +273,7 @@ function selectMappaOption(){
 					'<li><label><input name="slist" value="metabolite" type="checkbox"/><a href="http://www.ncibi.org">Metabolite</a>'+
 					'</label>'+
 					'</li>'+
-					'<li><label><input name="slist" value="cytoband" type="checkbox"/><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?db=gene">Cytoband</a>'+
-					'</label>'+
-					'</li>'+
+					
 					'</ul>'+
 					'<br/>'+
 					'<li><label>Select All Datatbases</label>'+
@@ -264,9 +312,10 @@ function selectMappaOption(){
 			
 	    	
 	    }
-	    else if (selection == 'mm10')
+	    else if (selection.includes('mm'))
 	    	{
 	    	
+	    	console.log("in mm");
 	    	
 	    	var list = 
 	        	'<ul class="checklist">'+
@@ -385,132 +434,10 @@ function selectMappaOption(){
 	    	
 	    	
 	    	}
-	    else if(selection == "mm9" ){
-	    	
-	    	var list = 
-	    	'<ul class="checklist">'+
-			'<li><label>Functional Annotations</label>'+
-			'<ul>'+
-				'<li><label><input name="slist" value="biocarta_pathway" type="checkbox"/><a href="http://www.biocarta.com/">Biocarta Pathway</a>'+
-				 '</label>'+
-					'</li>'+
-					'<li><label><input name="slist" value="ehmn_pathway_gene" type="checkbox"/><a href="http://www.ehmn.bioinformatics.ed.ac.uk">EHMN Metabolic Pathways</a>'+
-					'</label>'+
-					'</li>'+
-					'<li><label><input name="slist" value="GO" type="checkbox" id="go" onclick="selectAllGO()"/><a href="http://www.geneontology.org/">GO</a>'+
-					'</label>'+
-						'<ul>'+
-							'<li><label><input name="slist" value="GOBP" id="gobio" type="checkbox"/><a href="http://www.geneontology.org/">GO Biological Process</a>'+
-							'</label>'+
-							'</li>'+
-							'<li><label><input name="slist" value="GOCC" id="gocell" type="checkbox"/><a href="http://www.geneontology.org/">GO Cellular Component</a>'+
-							'</label>'+
-							'</li>'+
-							'<li><label><input name="slist" value="GOMF" id="gomol" type="checkbox"/><a href="http://www.geneontology.org/">GO Molecular Function</a>'+
-							'</label>'+
-							'</li>'+
-						'</ul></li>'+
-					'<li><label><input name="slist" value="kegg_pathway" type="checkbox"/><a href="http://www.genome.jp/kegg/">KEGG Pathway</a>'+
-					'</label>'+
-					'</li>'+
-					'<li><label><input name="slist" value="panther_pathway" type="checkbox"/><a href="http://www.pantherdb.org/pathway/">Panther Pathway</a>'+
-					'</label>'+
-					'</li>'+
-					'<li><label><input name="slist" value="pfam" type="checkbox"/><a href="http://pfam.sanger.ac.uk/">pFAM</a>'+
-					'<li><label><input name="slist" value="reactome" type="checkbox"/><a href="http://www.reactome.org/">Reactome</a>'+
-					'</label>'+
-					'</li>'+
-				'</ul></li>'+
-			'<li><label>Literature Derived</label>'+
-				'<ul>'+
-					'<li><label><input name="slist" value="mesh" type="checkbox"/><a href="http://gene2mesh.ncibi.org/">MeSH</a>'+
-					'</label>'+
-					'</li>'+
-					
-					
-				'</ul></li>'+
-			'<li><label>Targets</label>'+
-				'<ul>'+
-					'<li><label><input name="slist" value="drug_bank" type="checkbox"/><a href="http://www.drugbank.ca/">Drug Bank</a>'+
-					'</label>'+
-					'</li>'+
-					'<li><label><input name="slist" value="mirbase" type="checkbox"/><a href="http://www.mirbase.org/">miRBase</a>'+
-					'</label>'+
-					'</li>'+
-					'<li><label><input name="slist" value="transcription_factors" type="checkbox"/><a href="http://biobase-international.com/index.php?id=transfac">Transcription Factors</a>'+
-					'</label>'+
-					'</li>'+
-					'</ul></li>'+
-					'<li><label>Interaction</label>'+
-				'<ul>'+
-				'<li><label><input name="slist" value="protein_interaction_mimi" type="checkbox"/><a href="http://mimi.ncibi.org/MimiWeb/main-page.jsp">Protein Interaction (MiMI)</a>'+
-				'</label>'+
-				'</li>'+
-				'</ul></li>'+
-				'<li><label>Other</label>'+
-				'<ul>'+
-				'<li><label><input name="slist" value="metabolite" type="checkbox"/><a href="http://www.ncibi.org">Metabolite</a>'+
-				'</label>'+
-				'</li>'+
-				'</ul>'+
-				'<br/>'+			
-				'<li><label>Select All Datatbases</label>'+
-				'<ul>'+
-				'<li><label><input name="slist2"  type="checkbox"  onclick="selectAllDb(this)"/><a href="http://www.ncbi.nlm.nih.gov/sites/entrez?db=gene">Select All</a>'+
-				'</ul>'+
-				'</ul>';
-
-	    	
-					document.getElementById("databaseList").innerHTML = list;
-					
-	    	
-					
-					var list2 =
-						'<ul>'
-						+'<li><input type="radio" name="ismappable" value="T" onClick="selectRangeCheck(this)"/> <span class="formText">True</span></li>'
-						+'<li><input type="radio" name="ismappable" value="F" onClick="selectRangeCheck(this)" /><span class="formText">False</span></li>'
-						+'</ul>'  
-						+'</div>'
-						+'</td>'
-						+'</tr>' ;
-				    	
-				    	console.log("inside if loop of mouse");
-				    	document.getElementById("mapp").innerHTML = list2;		
-				    	
-				    	
-				    	
-						var list3 =
-					    	'<ul class= "b">'
-							+'<li><input type="radio" name="ld" value="1kb" /><span class="formText"><1kb</span><br />'
-							+'<span class="footnote">(only use peaks within 1kb of a transcription start site)</span></li>'
-							+'<li><input type="radio" name="ld" value="5kb"  /><span class="formText">5kb</span><br />'
-							+'<span class="footnote">(only use peaks within 5kb of a transcription start site)</span></li>'
-							+'<li><input type="radio" name="ld" value="10kb"  /><span class="formText"> < 10kb</span><br />'
-	    					+'<span class="footnote">(only use peaks within 10kb of a transcription start site)</span></li>'
-	    					+'<li><input type="radio" name="ld" value="10kb_and_more_upstream"  /><span class="formText"> < 10kb and more upstream</span><br />'
-	    					+'<span class="footnote">(only use peaks within 10kb and more upstream of a transcription start site)</span></li>'
-	    					+'<li><input type="radio" name="ld" value="exon" onClick="warnForFet(this)"/><span class="formText">Exon</span><br />'
-	    					+'<span class="footnote">(only use peaks that fall within an annotated exon)</span></li>'
-	    					+'<li><input type="radio" name="ld" value="intron" onClick="warnForFet(this)"/><span class="formText">Intron</span><br />'
-	    					+'<span class="footnote">(only use peaks that fall within an annotated itron)</span></li>'
-							+'<li><input type="radio" name="ld" value="nearest_gene" onClick="warnForFet(this)"  /><span class="formText">Nearest Gene</span><br />'
-							+'<span class="footnote">(use all peaks; assign peaks to the nearest gene defined by transcription start and end sites)</span></li>'
-							+'<li><input type="radio" name="ld" value="nearest_tss" checked="checked" onClick="warnForFet(this)"/><span class="formText">Nearest TSS</span><br />'
-							+'<span class="footnote">(use all peaks; assign peaks to the gene with the closest TSS)</span></li>'
-							+'<li><input type="radio" name="ld" value="user" onClick="UploadLdFile(this)"/><span class="formText">User Defined</span><br />'
-							+'<span class="footnote">(user can input their own locus definition)</span></li>'
-							+'</ul>' ;
-
-							document.getElementById("locusdefinations").innerHTML = list3;	
-							
-						
-					
-					
-					
-	    }
-	    else if(selection == "hg19")
+	  
+	    else if(selection.includes("hg"))
 	    {
-	    	
+	    	console.log("in hg");
 	    	var list =
 	    		   	'<ul class="checklist">'+
 	    			'<li><label>Functional Annotations</label>'+
@@ -697,6 +624,75 @@ function selectMappaOption(){
 			
 	    	
 	    }
+	    
+	    else if(selection == "dre")
+	    {
+	    	
+	    	var list =
+	    		   	'<ul class="checklist">'+
+	    			'<li><label>Functional Annotations</label>'+
+	    			'<ul>'+
+	    					'<li><label><input name="slist" value="GO" type="checkbox" id="go" onclick="selectAllGO()"/><a href="http://www.geneontology.org/">GO</a>'+
+	    					'</label>'+
+	    						'<ul>'+
+	    							'<li><label><input name="slist" value="GOBP" id="gobio" type="checkbox"/><a href="http://www.geneontology.org/">GO Biological Process</a>'+
+	    							'</label>'+
+	    							'</li>'+
+	    							'<li><label><input name="slist" value="GOCC" id="gocell" type="checkbox"/><a href="http://www.geneontology.org/">GO Cellular Component</a>'+
+	    							'</label>'+
+	    							'</li>'+
+	    							'<li><label><input name="slist" value="GOMF" id="gomol" type="checkbox"/><a href="http://www.geneontology.org/">GO Molecular Function</a>'+
+	    							'</label>'+
+	    							'</li>'+
+	    						'</ul></li>'+	    					
+	    				'</ul>';
+	    	
+	    	document.getElementById("databaseList").innerHTML = list;
+			document.upform.isDatabaseExternal.value = 'false';
+			
+	    	var list2 =
+	    		'<ul>'
+	    		+'<li><input type="radio" name="ismappable" value="T" onClick="selectRangeCheck(this)"/> <span class="formText">True</span></li>'
+	    		+'<li><input type="radio" name="ismappable" value="F"  onClick="selectRangeCheck(this)"  /><span class="formText">False</span></li>'
+	    		+'</ul>'  
+	    		+'</div>'
+	    		+'</td>'
+	    		+'</tr>' ;
+	    	
+	    	
+	    	console.log("inside dre loop");
+	    	document.getElementById("mapp").innerHTML = list2;		
+			document.upform.isDatabaseExternal.value = 'true';
+			
+			
+			var list3 =
+		    	'<ul class= "b">'
+				+'<li><input type="radio" name="ld" value="1kb" /><span class="formText"><1kb</span><br />'
+				+'<span class="footnote">(only use peaks within 1kb of a transcription start site)</span></li>'
+				+'<li><input type="radio" name="ld" value="5kb"  /><span class="formText">5kb</span><br />'
+				+'<span class="footnote">(only use peaks within 5kb of a transcription start site)</span></li>'
+				+'<li><input type="radio" name="ld" value="10kb"  /><span class="formText"> < 10kb</span><br />'
+				+'<span class="footnote">(only use peaks within 10kb of a transcription start site)</span></li>'
+				+'<li><input type="radio" name="ld" value="10kb_and_more_upstream"  /><span class="formText"> < 10kb and more upstream</span><br />'
+				+'<span class="footnote">(only use peaks within 10kb and more upstream of a transcription start site)</span></li>'
+				+'<li><input type="radio" name="ld" value="exon" onClick="warnForFet(this)"/><span class="formText">Exon</span><br />'
+				+'<span class="footnote">(only use peaks that fall within an annotated exon)</span></li>'
+				+'<li><input type="radio" name="ld" value="intron" onClick="warnForFet(this)"/><span class="formText">Intron</span><br />'
+				+'<span class="footnote">(only use peaks that fall within an annotated itron)</span></li>'
+				+'<li><input type="radio" name="ld" value="nearest_gene" onClick="warnForFet(this)"  /><span class="formText">Nearest Gene</span><br />'
+				+'<span class="footnote">(use all peaks; assign peaks to the nearest gene defined by transcription start and end sites)</span></li>'
+				+'<li><input type="radio" name="ld" value="nearest_tss" checked="checked" onClick="warnForFet(this)"/><span class="formText">Nearest TSS</span><br />'
+				+'<span class="footnote">(use all peaks; assign peaks to the gene with the closest TSS)</span></li>'
+				+'<li><input type="radio" name="ld" value="user" onClick="UploadLdFile(this)"/><span class="formText">User Defined</span><br />'
+				+'<span class="footnote">(user can input their own locus definition)</span></li>'
+				+'</ul>' ;
+
+				document.getElementById("locusdefinations").innerHTML = list3;	
+			
+	    	
+	    }
+	    
+	    
 	    else
 	    	{
 	    	
@@ -862,6 +858,45 @@ function validate(elem){
         elem.focus();
         return false;
     }
+}
+
+function selectMethod()
+{
+	
+	var checker = document.getElementById('checkme');
+	
+	var radios = document.getElementsByName('method');
+
+	for (var i = 0, length = radios.length; i < length; i++) {
+	    if (radios[i].checked) {
+	        // do whatever you want with the checked radio
+	        
+	        if(radios[i].value=="polyenrich")
+	        	{
+	        	 checker.disabled=false;	
+	  		   
+	        	}
+	        else if (radios[i].value=="hybrid")
+        	{
+	        	 checker.disabled=false;	
+	  		   
+	        	}
+	        else
+	        	{
+	        	 checker.checked=false;
+	        	 checker.disabled=true;	
+	  		   
+	  		   
+	        	}
+
+	        // only one radio can be logically checked, don't check the rest
+	        break;
+	    }
+	}
+	
+	
+	
+	 
 }
 
 
